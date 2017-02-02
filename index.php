@@ -7,7 +7,7 @@ if(!isset($_GET['id'])) {
 	$chaussettes = $armoire::all(50);
 	require __DIR__ . '/Views/tableau.php';
 }
-else {
+elseif(isset($_GET['id'])) {
 	$id = $_GET['id'];
 	$chaussette = $armoire::get($id);
 	require __DIR__ . '/Views/select.php';
