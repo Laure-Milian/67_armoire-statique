@@ -17,12 +17,12 @@ class Armoire {
 
 	public static function all($limit = null, $offset = null) {
 		$a = new self;
-		return $a->db->limit($limit)->offset($offset)->find_many();
+		return $a->getInstance()->limit($limit)->offset($offset)->find_many();
 	}
 
 	public static function get($id) {
 		$a = new self;
-		return $a->db->find_one($id);
+		return $a->getInstance()->find_one($id);
 	}
 
 }

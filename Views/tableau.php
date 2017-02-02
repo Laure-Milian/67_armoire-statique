@@ -18,7 +18,7 @@
 			<tr>
 				<td><?= $chaussette->id ?></td>
 				<td><?= $chaussette->pointure ?></td>
-				<td><?= $chaussette->temp_lavage ?></td>
+				<td><?= $chaussette->temp_lavage ?> °C</td>
 				<td><?= $chaussette->description ?></td>
 				<td><?= $chaussette->couleur ?></td>
 				<td><?= $chaussette->date_lavage ?></td>
