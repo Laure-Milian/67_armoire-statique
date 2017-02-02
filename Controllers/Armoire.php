@@ -22,7 +22,7 @@ class Armoire {
 
 	public static function get($id) {
 		$a = new self;
-		return $a->db->where('id', $id)->find_one();
+		return $a->db->find_one($id);
 	}
 
 }
