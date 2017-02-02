@@ -1,38 +1,15 @@
 <?php
-
-require __DIR__ . '/Armoire.php';
-
+require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/Controllers/Armoire.php';
 $armoire = new Armoire();
 
-$chaussettes = $armoire::all(50);
-?>
+if(!isset($_GET['id'])) {
+	$chaussettes = $armoire::all(50);
+	require __DIR__ . '/Views/tableau.php';
+}
+else {
+	$id = $_GET['id'];
+	$chaussette = $armoire::get($id);
+	require __DIR__ . '/Views/select.php';
+}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Tableau 50 premières entrées</title>
-</head>
-<body>
-	<table>
-		<tr>
-			<th>Id</th>
-			<th>Pointure</th>
-			<th>Temp lavage</th>
-			<th>Description</th>
-			<th>Couleur</th>
-			<th>Date lavage</th>
-		</tr>
-		<?php foreach ($chaussettes as $chaussette) : ?>
-			<tr>
-				<td><?= $chaussette->id ?></td>
-				<td><?= $chaussette->pointure ?></td>
-				<td><?= $chaussette->temp_lavage ?></td>
-				<td><?= $chaussette->description ?></td>
-				<td><?= $chaussette->couleur ?></td>
-				<td><?= $chaussette->date_lavage ?></td>
-			</tr>
-		<?php endforeach; ?>
-	</table>
-</body>
-</html>
